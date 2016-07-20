@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DraftBook.Console", "DraftBook\DraftBook.Console.csproj", "{AB805768-1A71-45A4-A302-C62F5D75BAF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DraftBook.EncryptTool", "EncryptTool\DraftBook.EncryptTool.csproj", "{33C30B75-1B0C-4ED4-878C-DCD1D6E427CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB805768-1A71-45A4-A302-C62F5D75BAF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB805768-1A71-45A4-A302-C62F5D75BAF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB805768-1A71-45A4-A302-C62F5D75BAF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB805768-1A71-45A4-A302-C62F5D75BAF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33C30B75-1B0C-4ED4-878C-DCD1D6E427CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33C30B75-1B0C-4ED4-878C-DCD1D6E427CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33C30B75-1B0C-4ED4-878C-DCD1D6E427CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33C30B75-1B0C-4ED4-878C-DCD1D6E427CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AB805768-1A71-45A4-A302-C62F5D75BAF5}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{D6E0FB78-2753-40A1-A736-868F81DF0A1E}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DraftBook.Console</RootNamespace>
-    <AssemblyName>DraftBook.Console</AssemblyName>
+    <RootNamespace>DraftBook.MultiThreading</RootNamespace>
+    <AssemblyName>DraftBook.MultiThreading</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,16 +22,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>DraftBook.Console.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -45,23 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DailyPractice.cs" />
-    <Compile Include="MultiThreadingTest.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="CodePractice.cs" />
+    <Compile Include="Concept.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DraftBook.MultiThreading\DraftBook.MultiThreading.csproj">
-      <Project>{d6e0fb78-2753-40a1-a736-868f81df0a1e}</Project>
-      <Name>DraftBook.MultiThreading</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EncryptTool\DraftBook.EncryptTool.csproj">
-      <Project>{33c30b75-1b0c-4ed4-878c-dcd1d6e427cf}</Project>
-      <Name>DraftBook.EncryptTool</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

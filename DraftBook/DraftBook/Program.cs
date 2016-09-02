@@ -16,18 +16,39 @@ namespace DraftBook.Console
             #region 加密方法测试
             //EncryptTest();
             //Base64EncryptTest();
-            EncryptTestForErrData();
+            //EncryptTestForErrData();
+            //DecryptTest();
+            #endregion
+
+            #region C#6语法
+            //新版本的String.Format()方法
+            var dateStr = $"{ DateTime.Now: yyyy-MM-dd}";
+            var nameStr = "Lizhenglong";
+            var testStr = $"my name is {nameStr}";
+            System.Console.WriteLine(testStr);//my name is Lizhenglong
+            //nameof运算符，可以获取变量的名称
+            var yytObj = new object();
+            var yytStr = nameof(yytObj);
+            System.Console.WriteLine(yytStr);//yytObj
+            //带索引的对象初始化器
+            var testDic = new Dictionary<int, string>() { [1] = "李正龙", [10] = "颜贻通", [11] = "田贺" };
+            foreach (var item in testDic)
+            {
+                System.Console.Write("[Index={0},Value={1}] ", item.Key, item.Value);
+            }
+
+            System.Console.ReadKey();
             #endregion
         }
 
         #region 加密方法测试
         static void EncryptTest()
         {
-            var encryptedStr = EncryptTool.EncryptHelper.DESEncryptString("False@@7336@@上海悠悠建筑装饰工程有限公司@@202@@上海@@2@@8@@150@@电子合同章@@商户编号为：[7336]商户名称为：[上海悠悠建筑装饰工程有限公司]的商户购买[电子合同章]@@78803547@@悠悠建筑装饰@@0@@4", "Home.Eop");
+            var encryptedStr = EncryptTool.EncryptHelper.DESEncrypt("25052@@测试公司啊@@203@@北京@@2@@1@@0.01@@86164705@@测试公司啊@@4", "Home.Eop");
             System.Console.WriteLine(encryptedStr ?? "加密失败");
             if (encryptedStr != null)
             {
-                var decryptedStr = EncryptTool.EncryptHelper.DESDecryptString(encryptedStr, "Home.Eop");
+                var decryptedStr = EncryptTool.EncryptHelper.DESDecrypt(encryptedStr, "Home.Eop");
                 System.Console.WriteLine(decryptedStr);
             }
 
@@ -43,6 +64,13 @@ namespace DraftBook.Console
             string encryptedStr = "False@@7336@@上海悠悠建筑装饰工程有限公司@@202@@上海@@2@@8@@150@@电子合同章@@商户编号为：[7336]商户名称为：[上海悠悠建筑装饰工程有限公司]的商户购买[电子合同章]@@78803547@@悠悠建筑装饰@@0@@4";
             var decrpytedStr = EncryptTool.EncryptHelper.DESDecrypt(encryptedStr, "Home.Eop");
             System.Console.WriteLine(decrpytedStr);
+        }
+
+        static void DecryptTest()
+        {
+            string encryptedStr = "6cyDbgjzcfA3IcTOdh++OU3eKaI6fs3Ltm7FRoRg22EISluUBuGCivHYlWUjOmjjDfqOwdlL8fti+nI8jmqBUnXyv3eOQZH8E6cMi2dHnRk=";
+            var decryptedStr = EncryptTool.EncryptHelper.DESDecrypt(encryptedStr, "Home.Eop");
+            System.Console.WriteLine(decryptedStr);
         }
 
         static void Base64EncryptTest()

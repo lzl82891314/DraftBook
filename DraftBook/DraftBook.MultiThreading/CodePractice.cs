@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Diagnostics;
+using System.Runtime.ExceptionServices;
 
 namespace DraftBook.MultiThreading
 {
@@ -37,6 +39,7 @@ namespace DraftBook.MultiThreading
         public static IEnumerable<char> GetBusySymbols()
         {
             string busySymbolStr = @"-\|/-\|/";
+            //string busySymbolStr = "9876543210";
             int nextIndex = 0;
             //int times = 100;
             while (true)
@@ -47,6 +50,143 @@ namespace DraftBook.MultiThreading
                 nextIndex = (nextIndex + 1) % busySymbolStr.Length;
                 //输出退格符号
                 yield return '\b';
+            }
+        }
+
+        /// <summary>
+        /// 测试yield return的功能
+        /// </summary>
+        /// <returns>foreach循环中输出的结果是1 2 3</returns>
+        public static IEnumerable<int> YieldTest()
+        {
+            yield return 1;
+            yield return 2;
+            yield return 3;
+        }
+
+        /// <summary>
+        /// 测试任务取消的功能CancellationToken
+        /// </summary>
+        public static void TaskCancelTest()
+        {
+            Console.Write("按Enter键结束：");
+            CancellationTokenSource cancelTokeSource = new CancellationTokenSource();
+            Task task = Task.Run(() => TodoSomeThing(cancelTokeSource.Token), cancelTokeSource.Token);
+            Console.ReadLine();
+            cancelTokeSource.Cancel();
+            task.Wait();
+
+            Console.WriteLine("任务已结束");
+
+            Console.ReadKey();
+        }
+
+        private static void TodoSomeThing(CancellationToken cancelToken)
+        {
+            foreach (var item in GetBusySymbols())
+            {
+                if (cancelToken.IsCancellationRequested)
+                {
+                    break;
+                }
+                Console.Write(item);
+            }
+        }
+        
+        /// <summary>
+        /// 自定义异步方法
+        /// 使用异步方法运行命令行程序
+        /// </summary>
+        /// <returns></returns>
+        public static Task<Process> RunProcessAsync(string fileName, string arguments = null, CancellationToken cancellationToken = default(CancellationToken), IProgress<ProcessProgressEventArgs> progress = null, object objectState = null)
+        {
+            TaskCompletionSource<Process> taskCS = new TaskCompletionSource<Process>();
+            Console.WriteLine("RunProcessAsync:" + Thread.CurrentThread.ManagedThreadId);
+            Process process = new Process()
+            {
+                StartInfo = new ProcessStartInfo(fileName)
+                {
+                    UseShellExecute =  false,
+                    Arguments = arguments,
+                    RedirectStandardOutput = progress != null
+                },
+                EnableRaisingEvents = true
+            };
+
+            process.Exited += (sender, localEventArgs) =>
+            {
+                taskCS.SetResult(process);
+            };
+
+            if (progress != null)
+            {
+                process.OutputDataReceived += (sender, localEventArgs) =>
+                {
+                    progress.Report(new ProcessProgressEventArgs(localEventArgs.Data, objectState));
+                };
+            }
+            if (cancellationToken.IsCancellationRequested)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+            }
+
+            process.Start();
+
+            if (progress != null)
+            {
+                process.BeginOutputReadLine();
+            }
+
+            cancellationToken.Register(() =>
+            {
+                process.CloseMainWindow();
+                cancellationToken.ThrowIfCancellationRequested();
+            });
+
+            return taskCS.Task;
+        }
+
+        public static async Task TestAsync()
+        {
+            try
+            {
+                Console.WriteLine("TestAsync:" + Thread.CurrentThread.ManagedThreadId);
+                var result = await RunProcessAsync(@"E:\BaiduYunDownload\wcf从入门到精通\视频教程\1.WCF出现的背景及快速搭建.exe");
+                for (int i = 0; i < 100; i++)
+                {
+                    Console.WriteLine(i);
+                }
+                Console.WriteLine("Id:[{0}], SessionId:[{1}], ProcessName:[{2}], PriorityClass:[{3}], ExitTime:[{4}]", result.Id, result.SessionId, result.ProcessName, result.PriorityClass, result.ExitTime);
+            }
+            catch (AggregateException agEx)
+            {
+                agEx.Flatten().Handle(innerException =>
+                {
+                    Console.WriteLine(innerException.Message);
+                    ExceptionDispatchInfo.Capture(agEx.InnerException).Throw();
+                    return true;
+                });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        public class ProcessProgressEventArgs : EventArgs
+        {
+            public string Data { get; private set; }
+            public object State { get; private set; }
+
+            public ProcessProgressEventArgs(string data, object state)
+            {
+                Data = data;
+                State = state;
+            }
+
+            public ProcessProgressEventArgs() : this(string.Empty, null)
+            {
+
             }
         }
     }

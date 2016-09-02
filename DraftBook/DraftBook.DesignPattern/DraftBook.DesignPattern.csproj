@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AB805768-1A71-45A4-A302-C62F5D75BAF5}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{7B85830A-AF5E-447F-A4FF-B966D0BF423A}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DraftBook.Console</RootNamespace>
-    <AssemblyName>DraftBook.Console</AssemblyName>
+    <RootNamespace>DraftBook.DesignPattern</RootNamespace>
+    <AssemblyName>DraftBook.DesignPattern</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -31,16 +29,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>DraftBook.Console.MultiThreadingTest</StartupObject>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Threading.Tasks.Dataflow, Version=4.5.24.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Tpl.Dataflow.4.5.24\lib\portable-net45+win8+wpa81\System.Threading.Tasks.Dataflow.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,37 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppDomainTest.cs" />
-    <Compile Include="DailyPractice.cs" />
-    <Compile Include="MultiThreadingTest.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="FlyWeightPattern.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DraftBook.AppDomain\DraftBook.AppDomain.csproj">
-      <Project>{49c8c2f4-0653-4a46-86ff-08f8d8740fe1}</Project>
-      <Name>DraftBook.AppDomain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DraftBook.DelegateFactory\DraftBook.Utilities.csproj">
-      <Project>{519b2b78-57bf-4d1f-8953-1ea5f6cb9046}</Project>
-      <Name>DraftBook.Utilities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DraftBook.DesignPattern\DraftBook.DesignPattern.csproj">
-      <Project>{7b85830a-af5e-447f-a4ff-b966d0bf423a}</Project>
-      <Name>DraftBook.DesignPattern</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DraftBook.MultiThreading\DraftBook.MultiThreading.csproj">
-      <Project>{d6e0fb78-2753-40a1-a736-868f81df0a1e}</Project>
-      <Name>DraftBook.MultiThreading</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EncryptTool\DraftBook.EncryptTool.csproj">
-      <Project>{33c30b75-1b0c-4ed4-878c-dcd1d6e427cf}</Project>
-      <Name>DraftBook.EncryptTool</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

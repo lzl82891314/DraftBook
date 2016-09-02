@@ -12,7 +12,11 @@ namespace DraftBook.Console
     {
         static void Main(string[] args)
         {
-            TaskBusySymbol();
+            //TaskBusySymbol();
+            //YieldTest();
+            //CancelTest();
+            //AsyncMethodBySelfDefinedTest();
+            DataFlowPractice1();
         }
 
         static void TaskBusySymbol()
@@ -24,6 +28,30 @@ namespace DraftBook.Console
             }
             System.Console.ReadKey();
 
+        }
+
+        static void YieldTest()
+        {
+            foreach (var item in CodePractice.YieldTest())
+            {
+                System.Console.WriteLine(item);
+            }
+            System.Console.ReadKey();
+        }
+
+        static void CancelTest()
+        {
+            CodePractice.TaskCancelTest();
+        }
+
+        static void AsyncMethodBySelfDefinedTest()
+        {
+            CodePractice.TestAsync().GetAwaiter().GetResult();
+        }
+
+        static void DataFlowPractice1()
+        {
+            DataFlow.BasePractice1().GetAwaiter().GetResult();
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DraftBook.Console", "DraftBook\DraftBook.Console.csproj", "{AB805768-1A71-45A4-A302-C62F5D75BAF5}"
 EndProject
@@ -18,6 +18,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DraftBook.Utilities", "DraftBook.DelegateFactory\DraftBook.Utilities.csproj", "{519B2B78-57BF-4D1F-8953-1EA5F6CB9046}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DraftBook.DesignPattern", "DraftBook.DesignPattern\DraftBook.DesignPattern.csproj", "{7B85830A-AF5E-447F-A4FF-B966D0BF423A}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DraftBook.DotNetCore.Web", "DraftBook.DotNetCore.Web\DraftBook.DotNetCore.Web.xproj", "{9F240A89-01D5-414F-89B1-A6F85EEDD971}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DraftBook.DotNetCore.WebApi", "DraftBook.DotNetCore.WebApi\DraftBook.DotNetCore.WebApi.xproj", "{53F1A2F3-8A5D-4022-B1F8-D750A39D9DC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,14 @@ Global
 		{7B85830A-AF5E-447F-A4FF-B966D0BF423A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B85830A-AF5E-447F-A4FF-B966D0BF423A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B85830A-AF5E-447F-A4FF-B966D0BF423A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F240A89-01D5-414F-89B1-A6F85EEDD971}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F240A89-01D5-414F-89B1-A6F85EEDD971}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F240A89-01D5-414F-89B1-A6F85EEDD971}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F240A89-01D5-414F-89B1-A6F85EEDD971}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53F1A2F3-8A5D-4022-B1F8-D750A39D9DC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53F1A2F3-8A5D-4022-B1F8-D750A39D9DC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53F1A2F3-8A5D-4022-B1F8-D750A39D9DC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53F1A2F3-8A5D-4022-B1F8-D750A39D9DC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -21,24 +21,34 @@ namespace DraftBook.Console
             #endregion
 
             #region C#6语法
-            //新版本的String.Format()方法
-            var dateStr = $"{ DateTime.Now: yyyy-MM-dd}";
-            var nameStr = "Lizhenglong";
-            var testStr = $"my name is {nameStr}";
-            System.Console.WriteLine(testStr);//my name is Lizhenglong
-            //nameof运算符，可以获取变量的名称
-            var yytObj = new object();
-            var yytStr = nameof(yytObj);
-            System.Console.WriteLine(yytStr);//yytObj
-            //带索引的对象初始化器
-            var testDic = new Dictionary<int, string>() { [1] = "李正龙", [10] = "颜贻通", [11] = "田贺" };
-            foreach (var item in testDic)
-            {
-                System.Console.Write("[Index={0},Value={1}] ", item.Key, item.Value);
-            }
+            ////新版本的String.Format()方法
+            //var dateStr = $"{ DateTime.Now: yyyy-MM-dd}";
+            //var nameStr = "Lizhenglong";
+            //var testStr = $"my name is {nameStr}";
+            //System.Console.WriteLine(testStr);//my name is Lizhenglong
+            ////nameof运算符，可以获取变量的名称
+            //var yytObj = new object();
+            //var yytStr = nameof(yytObj);
+            //System.Console.WriteLine(yytStr);//yytObj
+            ////带索引的对象初始化器
+            //var testDic = new Dictionary<int, string>() { [1] = "李正龙", [10] = "颜贻通", [11] = "田贺" };
+            //foreach (var item in testDic)
+            //{
+            //    System.Console.Write("[Index={0},Value={1}] ", item.Key, item.Value);
+            //}
+            #endregion
+
+            #region 引用 DotNetCore dll
+            //new ConsoleApplication.Program().TestFunc("Test");
+
+            #endregion
+
+            #region 枚举测试
+            var result = Enum.GetName(typeof(TestEnum), 0);
+            System.Console.WriteLine(result);
+            #endregion
 
             System.Console.ReadKey();
-            #endregion
         }
 
         #region 加密方法测试
@@ -82,5 +92,12 @@ namespace DraftBook.Console
             System.Console.ReadKey();
         }
         #endregion
+    }
+
+    public enum TestEnum
+    {
+        全部 = -1,
+        测试数据1 = 1,
+        测试数据2 = 2
     }
 }

@@ -32,9 +32,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>DraftBook.Console.Program</StartupObject>
+    <StartupObject>DraftBook.Console.DapperHelperTest</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper">
+      <HintPath>..\PublicLib\Dapper\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
@@ -58,6 +65,7 @@
   <ItemGroup>
     <Compile Include="AppDomainTest.cs" />
     <Compile Include="DailyPractice.cs" />
+    <Compile Include="DapperHelperTest.cs" />
     <Compile Include="DesignPatternTest.cs" />
     <Compile Include="MultiThreadingTest.cs" />
     <Compile Include="Program.cs" />
@@ -71,6 +79,10 @@
     <ProjectReference Include="..\DraftBook.AppDomain\DraftBook.AppDomain.csproj">
       <Project>{49c8c2f4-0653-4a46-86ff-08f8d8740fe1}</Project>
       <Name>DraftBook.AppDomain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DraftBook.DapperHelper\DraftBook.DapperHelper.csproj">
+      <Project>{2e7b6cec-6679-4881-847e-939e33a9be29}</Project>
+      <Name>DraftBook.DapperHelper</Name>
     </ProjectReference>
     <ProjectReference Include="..\DraftBook.DelegateFactory\DraftBook.Utilities.csproj">
       <Project>{519b2b78-57bf-4d1f-8953-1ea5f6cb9046}</Project>

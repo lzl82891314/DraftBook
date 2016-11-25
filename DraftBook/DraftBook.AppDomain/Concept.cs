@@ -27,5 +27,8 @@ namespace DraftBook.AppDomain
         //1、AppDomain创建之后会有自己的Loader堆，每个Loader堆都记录了自AppDomain从创建以来访问过哪些类型。
         //2、如果两个AppDomain需要同时加载一个相同的程序集，如System.dll，则两个AppDomain的Loader堆会分别分配一个该类型的对象。
         //3、有些类型天生就需要被多个程序集所共享，比如MSCorLib.dll，其中包含了System.Int32和System.Object等类型，所以这种程序集会以"AppDomain中立"的形式存在被多个AppDomain所共享，但是有一个问题，这个"AppDomain中立"不能被卸载，只有进程结束时才会被销毁。
+
+
+
     }
 }

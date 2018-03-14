@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>DraftBook.Console.DapperHelperTest</StartupObject>
+    <StartupObject>DraftBook.Console.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dapper">
@@ -67,6 +67,7 @@
     <Compile Include="DailyPractice.cs" />
     <Compile Include="DapperHelperTest.cs" />
     <Compile Include="DesignPatternTest.cs" />
+    <Compile Include="InterviewQuestion.cs" />
     <Compile Include="MultiThreadingTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

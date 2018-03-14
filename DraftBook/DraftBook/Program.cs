@@ -44,8 +44,12 @@ namespace DraftBook.Console
             #endregion
 
             #region 枚举测试
-            var result = Enum.GetName(typeof(TestEnum), 0);
-            System.Console.WriteLine(result);
+            //var result = Enum.GetName(typeof(TestEnum), 0);
+            //System.Console.WriteLine(result);
+            #endregion
+
+            #region 笔试题验证
+            InterviewQuestion.Question1();
             #endregion
 
             System.Console.ReadKey();

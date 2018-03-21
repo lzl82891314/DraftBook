@@ -49,7 +49,9 @@ namespace DraftBook.Console
             #endregion
 
             #region 笔试题验证
-            InterviewQuestion.Question1();
+            //InterviewQuestion.Question1();
+
+            var timestamp = (long)(DateTime.Now - TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 01, 01))).TotalMilliseconds;
             #endregion
 
             System.Console.ReadKey();

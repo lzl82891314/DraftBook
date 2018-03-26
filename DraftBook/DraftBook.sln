@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DraftBook.OwinWeb", "DraftB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DraftBook.OwinTestWeb", "DraftBook.OwinTestWeb\DraftBook.OwinTestWeb.csproj", "{220C737D-1AA4-4F9C-BA13-BA5AD1D08A3E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DraftBook.ZipkinCoreNet", "DraftBook.ZipkinCoreNet\DraftBook.ZipkinCoreNet.csproj", "{33055E5B-E7BD-4F2B-A5CE-8F71EA34E632}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{220C737D-1AA4-4F9C-BA13-BA5AD1D08A3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{220C737D-1AA4-4F9C-BA13-BA5AD1D08A3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{220C737D-1AA4-4F9C-BA13-BA5AD1D08A3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33055E5B-E7BD-4F2B-A5CE-8F71EA34E632}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33055E5B-E7BD-4F2B-A5CE-8F71EA34E632}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33055E5B-E7BD-4F2B-A5CE-8F71EA34E632}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33055E5B-E7BD-4F2B-A5CE-8F71EA34E632}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

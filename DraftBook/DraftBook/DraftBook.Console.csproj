@@ -66,6 +66,7 @@
     <Compile Include="AppDomainTest.cs" />
     <Compile Include="DailyPractice.cs" />
     <Compile Include="DapperHelperTest.cs" />
+    <Compile Include="DESEncryptTest.cs" />
     <Compile Include="DesignPatternTest.cs" />
     <Compile Include="InterviewQuestion.cs" />
     <Compile Include="MultiThreadingTest.cs" />

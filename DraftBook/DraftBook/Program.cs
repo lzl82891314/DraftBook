@@ -51,7 +51,12 @@ namespace DraftBook.Console
             #region 笔试题验证
             //InterviewQuestion.Question1();
 
-            var timestamp = (long)(DateTime.Now - TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 01, 01))).TotalMilliseconds;
+            //var timestamp = (long)(DateTime.Now - TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 01, 01))).TotalMilliseconds;
+            #endregion
+
+            #region DES加密调试
+            var desEncrypt = new DESEncryptTest();
+            desEncrypt.Test("北京_22957480_1521832085811", "02b2841950ee468a8659038dd485565f1bc88293626724314cd85b9847ab459c");
             #endregion
 
             System.Console.ReadKey();

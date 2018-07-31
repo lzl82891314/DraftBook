@@ -6,7 +6,11 @@ namespace DraftBook.NetCore.SocketClientConsole
     {
         static void Main(string[] args)
         {
-            SocketClient.StartClient("10.0.75.1", 11000);
+            Console.WriteLine("input socket server ipaddress: ");
+            var ip = Console.ReadLine();
+            Console.WriteLine("input socket server port: ");
+            var port = int.Parse(Console.ReadLine());
+            SocketClient.StartClient(ip, port);
         }
     }
 }

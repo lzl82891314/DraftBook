@@ -23,7 +23,13 @@ namespace DraftBook.NetCore
             // The DNS name of the computer  
             // running the listener is "host.contoso.com".  
             IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipAddress = ipHostInfo.AddressList.Where(item => item.AddressFamily == AddressFamily.InterNetwork).FirstOrDefault();
+            IPAddress ipAddress = ipHostInfo.AddressList.Where(item => item.AddressFamily == AddressFamily.InterNetwork && item.ToString() != "127.0.0.1" && !item.ToString().StartsWith("10.0")).FirstOrDefault();
+            if (ipAddress == null)
+            {
+                Console.WriteLine("Get local ip address error, please input server ip address: ");
+                var ip = Console.ReadLine();
+                ipAddress = IPAddress.Parse(ip);
+            }
             Console.WriteLine($"Socket server ip address is : { ipAddress.ToString() }");
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 11000);
 

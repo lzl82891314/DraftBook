@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>DraftBook.Console.Program</StartupObject>
+    <StartupObject>DraftBook.Console.ESFEncrypt</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dapper">
@@ -41,6 +42,9 @@
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -68,10 +72,13 @@
     <Compile Include="DapperHelperTest.cs" />
     <Compile Include="DESEncryptTest.cs" />
     <Compile Include="DesignPatternTest.cs" />
+    <Compile Include="ESFEncrypt.cs" />
     <Compile Include="InterviewQuestion.cs" />
+    <Compile Include="LinqGroupbyTest.cs" />
     <Compile Include="MultiThreadingTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SchemeTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

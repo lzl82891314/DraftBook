@@ -8,36 +8,27 @@ using System.Threading.Tasks;
 
 namespace DraftBook.Console
 {
-    public class DESEncryptTest
+    public class ESFEncrypt
     {
-        public void Test(string text, string verifyCode)
+        public static void Main(string[] args)
         {
-            var tempTime = GetTimestamp();
-            long timestamp = long.Parse(text.Split('_')[2]);
-            var dateTime = GetCurrentDateTime(timestamp);
-            System.Console.WriteLine(dateTime);
-            var encryptedStr = Encrypt(text, "esfInter");
+            var paramList = new List<string>()
+            {
+                "上海", //城市
+                "77778263", //B端Id
+                "1532691320000" //时间戳
+            };
 
 
-            System.Console.WriteLine(text);
-            System.Console.WriteLine(encryptedStr);
+            var verifyCode = GetVerifyCode(paramList);
             System.Console.WriteLine(verifyCode);
         }
 
-        public DateTime GetCurrentDateTime(long timestamp)
+        static string GetVerifyCode(List<string> paramList)
         {
-            return new DateTime(1970, 1, 1, 8, 0, 0).AddMilliseconds(timestamp);
-        }
-
-        public long GetTimestamp()
-        {
-            return (long)(DateTime.Now - new DateTime(1970, 01, 01, 08, 0, 0)).TotalMilliseconds;
-        }
-
-        public string GetEncryptStr(string city, string bUserId, string t)
-        {
-            var text = $"{ city }_{ bUserId }_{ t }";
-            return Encrypt(text, "esfInter");
+            string strEncrypt = string.Join("_", paramList);
+            string strKey = "esfInter";
+            return Encrypt(strEncrypt, strKey);
         }
 
         /// <summary>
@@ -45,15 +36,15 @@ namespace DraftBook.Console
         /// </summary>
         /// <param name="pToEncrypt">要加密的密码</param>
         /// <param name="sKey">加密密钥</param>
-        public string Encrypt(string pToEncrypt, string sKey)
+        public static string Encrypt(string pToEncrypt, string sKey)
         {
             DESCryptoServiceProvider des = new DESCryptoServiceProvider();
             //把字符串放到byte数组中
             byte[] inputByteArray = Encoding.Default.GetBytes(pToEncrypt);
 
             //建立加密对象的密钥和偏移量
-            des.Key = Encoding.ASCII.GetBytes(sKey);
-            des.IV = Encoding.ASCII.GetBytes(sKey);
+            des.Key = ASCIIEncoding.ASCII.GetBytes(sKey);
+            des.IV = ASCIIEncoding.ASCII.GetBytes(sKey);
 
             MemoryStream ms = new MemoryStream();
             CryptoStream cs = new CryptoStream(ms, des.CreateEncryptor(), CryptoStreamMode.Write);

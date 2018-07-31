@@ -55,11 +55,61 @@ namespace DraftBook.Console
             #endregion
 
             #region DES加密调试
-            var desEncrypt = new DESEncryptTest();
-            desEncrypt.Test("北京_22957480_1521832085811", "02b2841950ee468a8659038dd485565f1bc88293626724314cd85b9847ab459c");
+            //var desEncrypt = new DESEncryptTest();
+            //desEncrypt.Test("北京_22957480_1521832085811", "02b2841950ee468a8659038dd485565f1bc88293626724314cd85b9847ab459c");
+
+            //var t = desEncrypt.GetTimestamp();
+            //var nowTime = desEncrypt.GetCurrentDateTime(1522337384460);
+            //var createValifyCode = desEncrypt.GetEncryptStr("北京", "616", "1522308984137");
+            #endregion
+
+            #region 笔试题
+            //InterviewQuestion.Question2();
+            #endregion
+
+            #region 测试字符串拆分
+            //string str1 = "/Home/Index/";
+            //string str2 = "/Home/Index";
+            //string str3 = "/";
+            //string str4 = "Home/Index/";
+            //string str5 = "Home/Index";
+
+            //var arr1 = str1.TrimStart('/').TrimEnd('/').Split('/');
+            //var arr2 = str2.TrimStart('/').TrimEnd('/').Split('/');
+            //var arr3 = str3.TrimStart('/').TrimEnd('/').Split('/');
+            //var arr4 = str4.TrimStart('/').TrimEnd('/').Split('/');
+            //var arr5 = str5.TrimStart('/').TrimEnd('/').Split('/');
+            #endregion
+
+            #region 实验ref和out
+            string x = "123";
+            string y = "abc";
+            SwapRef(ref x, ref y);
+            System.Console.WriteLine(x);
+            System.Console.WriteLine(y);
+
+            Swap();
             #endregion
 
             System.Console.ReadKey();
+        }
+
+        static void SwapRef(ref string x, ref string y)
+        {
+            string temp = x;
+            x = y;
+            y = temp;
+        }
+
+        static void Swap()
+        {
+            string x = "123";
+            string y = "abc";
+            string temp = x;
+            x = y;
+            y = temp;
+            System.Console.WriteLine(x);
+            System.Console.WriteLine(y);
         }
 
         #region 加密方法测试

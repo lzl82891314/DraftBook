@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>DraftBook.Console.ESFEncrypt</StartupObject>
+    <StartupObject>DraftBook.Console.TaskTest</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dapper">
@@ -79,6 +79,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SchemeTest.cs" />
+    <Compile Include="TaskTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
